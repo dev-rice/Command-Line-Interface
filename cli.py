@@ -26,7 +26,17 @@ class CLI:
         pass
 
     def executeCommand(self, command_str):
-        return self.functions[command_str]()
+        # Split the command string by spaces
+        splitted = command_str.split(" ")
+
+        # The first thing is always the command name
+        command_name = splitted[0]
+        # Followed by the arguments
+        args = splitted[1:]
+        
+        print args
+
+        return self.functions[command_name]()
         pass
 
     def quitFunction(self):

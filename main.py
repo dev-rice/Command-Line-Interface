@@ -6,5 +6,5 @@ def testFunction():
 
 cli_test = CLI()
 cli_test.addFunction("test", testFunction, 0)
-result = cli_test.executeCommand("test")
+result = cli_test.executeCommand("test 1 2")
 print result
