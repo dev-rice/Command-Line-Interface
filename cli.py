@@ -17,16 +17,15 @@
 class CLI:
     def __init__(self):
         self.functions = {}
-
+        self.has_quit = False
         self.addFunction("quit", self.quitFunction, 0)
-        pass
 
     def addFunction(self, name, function_ptr, number_of_args):
         if not " " in name:
             self.functions[name] = function_ptr
         else:
             # 'should' throw an exception
-            print "function name cannot contain spaces"
+            print("function name cannot contain spaces")
 
     def executeCommand(self, command_str):
         # Split the command string by spaces
@@ -37,13 +36,14 @@ class CLI:
         # Followed by the arguments
         args = splitted[1:]
 
-        print args
-
         if command_name in self.functions:
             return self.functions[command_name]()
         else:
             # 'should' throw an exception
             pass
 
+    def isEnabled(self):
+        return self.has_quit
+
     def quitFunction(self):
-        pass
+        self.has_quit = True
