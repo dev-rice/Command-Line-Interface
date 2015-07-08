@@ -1,17 +1,17 @@
-from cli import CLI
+from function_holder import FunctionHolder
 
 def testFunction():
     print("hello, world. testing, testing...")
     return 22
 
-cli_test = CLI()
+function_holder_test = FunctionHolder()
 
-# Add a simple function to the cli
-cli_test.addFunction("test", testFunction, 0)
-while not cli_test.isEnabled():
-    # Take the users input as a command and send it to the cli instance
+# Add a simple function to the function_holder
+function_holder_test.addFunction("test", testFunction, 0)
+while not function_holder_test.isEnabled():
+    # Take the users input as a command and send it to the FunctionHolder instance
     users_input = input('>? ')
-    result = cli_test.executeCommand(users_input)
+    result = function_holder_test.executeCommand(users_input)
 
     # If something was returned, print it
     if result:
